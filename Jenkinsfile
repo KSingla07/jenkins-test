@@ -7,7 +7,7 @@ pipeline {
     stage('initialize') {
       steps {
         checkDocker()
-        log.info "Karan"
+        customLog.info "Karan"
         sh 'echo "This is Build Number $BUILD_NUMBER from $DEMO"'
       }
     }
