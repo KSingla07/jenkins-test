@@ -13,6 +13,19 @@ pipeline {
         sh 'echo "This is Build Number $BUILD_NUMBER from $DEMO"'
       }
     }
+    stage('dotnet'){
+     agent{
+        docker {
+            image "mcr.microsoft.com/dotnet/sdk:8.0"
+        }
+     }
+     steps{
+        sh '''
+            dotnet --list-sdks
+            dotnet --list-runtimes
+        '''
+     }
+    }
 
   }
 }
